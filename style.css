@@ -1,0 +1,19 @@
+
+.office{
+    background-image: linear-gradient(to bottom right, #F4E5DF, #DFEDE0);
+}
+
+.card {
+    width: 500px;
+}
+
+
+
+/* Styles for devices with a maximum width of 767 pixels (typical for mobile devices) */
+@media only screen and (max-width: 767px) {
+    /* Your mobile-specific styles go here */
+    .card {
+        width: auto;
+    }
+  }
+  
